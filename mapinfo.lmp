@@ -89,3 +89,8 @@ Map "MAP01" "$TXT_MAP01"
 	LightMode = 3
 	Sky1 = "textures/sky1.png"
 }
+
+DoomEdNums {
+	2007 = FlarePickup
+	2012 = Pills
+}
