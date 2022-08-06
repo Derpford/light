@@ -15,12 +15,18 @@ class LightPlayer : PlayerPawn {
         Height 56;
         Mass 100;
         Player.DisplayName "Lightless";
+        Player.StartItem "FlareTosser";
     }
 
     override void Tick() {
         Super.Tick();
 
-        lightlevel = Sector.PointInSector(pos.xy).lightlevel;
+        if (CountInv("reassurance") > 0) {
+            lightlevel = 255;
+            A_TakeInventory("reassurance",1);
+        } else {
+            lightlevel = Sector.PointInSector(pos.xy).lightlevel;
+        }
         double tickamt;
         if (lightlevel < 128) {
             // the dark hurts slowly
@@ -28,7 +34,7 @@ class LightPlayer : PlayerPawn {
             darkdamage += tickamt;
         } else {
             // not bright enough i need more
-            tickamt = (double(lightlevel)/128.) - 1.0;
+            tickamt = clamp((double(lightlevel)/128.) - 1.0, 0,1);
             darkdamage -= tickamt;
         }
 

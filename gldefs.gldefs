@@ -1,0 +1,19 @@
+flickerlight2 flare {
+    color 1.0 0.8 0.6
+    size 64
+    offset -4 4 16 
+    secondarysize 128
+    interval 0.01
+    attenuate 1
+    dontlightself 1
+}
+
+flickerlight2 flare2 {
+    color 1.0 0.6 0.4
+    size 32
+    offset -4 4 16 
+    secondarysize 128
+    interval 0.01
+    attenuate 1
+    dontlightself 1
+}
