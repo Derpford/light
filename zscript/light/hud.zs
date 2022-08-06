@@ -9,14 +9,18 @@ class LightHud : BaseStatusBar {
     int lightstage;
 
     int cflags;
+    int lflags;
+    int rflags;
 
     override void Init() {
         Super.Init();
         SetSize(0,320,200);
-        Font fnt = SmallFont;
+        Font fnt = BigFont;
         mHudFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft,1,1);
         barframe = 0;
         cflags = DI_SCREEN_CENTER_BOTTOM|DI_ITEM_CENTER_BOTTOM;
+        lflags = DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM|DI_TEXT_ALIGN_LEFT;
+        rflags = DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT;
         shake = 0;
     }
 
@@ -47,8 +51,8 @@ class LightHud : BaseStatusBar {
 
             DrawHealth();
             DrawEye();
-            // DrawFlares();
-            // DrawPills();
+            DrawFlares();
+            DrawPills();
         }
     }
 
@@ -91,5 +95,17 @@ class LightHud : BaseStatusBar {
                 break;
         }
         DrawImage("LEYE"..frame,dpos,cflags);
+    }
+
+    void DrawFlares() {
+        Vector2 dpos = ShakePos((-64,-24));
+        DrawImage("FLARA0",dpos,rflags);
+        DrawString(mHudFont,String.Format("%d",pmo.CountInv("FlarePickup")),dpos+(-32,-24),rflags);
+    }
+
+    void DrawPills() {
+        Vector2 dpos = ShakePos((64,-24));
+        DrawImage("PILLA0",dpos,lflags);
+        DrawString(mHudFont,String.Format("%d",pmo.CountInv("Pills")),dpos+(32,-24),lflags);
     }
 }
