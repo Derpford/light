@@ -2,7 +2,7 @@ DefaultListMenu
 {
 	Font "BigFont", "Untranslated"
 	LineSpacing 20
-	Selector "graphics/m_selector.png", -32, -5
+	Selector "M_EYE0", -32, -10
 	Font "BigUpper", "White"
 	LineSpacing 18
 }

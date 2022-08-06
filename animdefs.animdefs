@@ -1,0 +1,7 @@
+TEXTURE M_EYE0
+    PIC M_EYE0 rand 3 10 
+    PIC M_EYE1 tics 2
+    PIC M_EYE2 tics 2
+    PIC M_EYE3 rand 35 70
+    PIC M_EYE4 rand 10 35
+    OSCILLATE
