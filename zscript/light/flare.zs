@@ -13,7 +13,7 @@ class RoadFlare : Actor {
         Super.Tick();
         // burn bright
         if (time > 0) {
-            A_SpawnParticle("FFDDDD",SPF_FULLBRIGHT|SPF_RELATIVE,12,frandom(1,2),xoff:-4,yoff:16,velx:frandom(-2,4),vely:frandom(-2,4),velz:frandom(4,8),accelz:-0.5,sizestep:-0.1);
+            A_SpawnParticle("FFDDDD",SPF_FULLBRIGHT|SPF_RELATIVE,12,frandom(8,16),xoff:-4,yoff:16,velx:frandom(-2,4),vely:frandom(-2,4),velz:frandom(4,8),accelz:-0.5,sizestep:frandom(-1,1));
             time -= 1./35.;
             if (time < 10) {
                 SetState(ResolveState("Flicker"));
@@ -44,7 +44,16 @@ class RoadFlare : Actor {
     }
 }
 
+class TitleScreenFlare : Actor {
+    // burns forever
+    states {
+        Spawn:
+            FLAR A -1 Light("flare");
+    }
+}
+
 class FlarePickup : Ammo {
+    mixin PickUp;
     default {
         +FLATSPRITE;
         Inventory.Amount 1;
@@ -54,8 +63,7 @@ class FlarePickup : Ammo {
 
     states {
         Spawn:
-            FLAR A 11;
-            FLAR A 1 Bright;
+            FLAR B 1 Sparkle();
             Loop;
     }
 }
