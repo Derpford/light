@@ -46,9 +46,18 @@ class RoadFlare : Actor {
 
 class TitleScreenFlare : Actor {
     // burns forever
+    default {
+        +FLATSPRITE;
+    }
+
+    override void tick() {
+        A_SpawnParticle("FFDDAA",SPF_FULLBRIGHT|SPF_RELATIVE,12,frandom(8,16),xoff:-4,yoff:16,velx:frandom(-2,4),vely:frandom(-2,4),velz:frandom(4,8),accelz:-0.5,sizestep:frandom(-1,1));
+    }
+
     states {
         Spawn:
-            FLAR A -1 Light("flare");
+            FLAR A -1 Light("brightflare");
+            Stop;
     }
 }
 

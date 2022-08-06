@@ -91,6 +91,8 @@ Map "MAP01" "$TXT_MAP01"
 }
 
 DoomEdNums {
+	99 = TitleScreenFlare
+
 	2007 = FlarePickup
 	2012 = Pills
 }

@@ -17,3 +17,12 @@ flickerlight2 flare2 {
     attenuate 1
     dontlightself 1
 }
+
+flickerlight2 brightflare {
+    color 1.0 0.6 0.4
+    size 96
+    secondarysize 192
+    offset -4 8 16
+    interval 0.01
+    attenuate 1
+}
