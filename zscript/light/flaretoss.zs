@@ -13,6 +13,14 @@ class FlareTosser : Weapon {
         }
     }
 
+    action void UsePill() {
+        let plr = invoker.owner;
+        if (plr.countinv("Pills") > 0 && plr.health < plr.GetMaxHealth()) {
+            plr.A_TakeInventory("Pills",1);
+            plr.GiveBody(25);
+        }
+    }
+
     states {
         Select:
             TNT1 A 1 A_Raise(35);
@@ -30,6 +38,15 @@ class FlareTosser : Weapon {
         Hold:
             TNT1 A 1;
             TNT1 A 1 A_ReFire("Hold");
+            TNT1 A 0;
+            Goto Ready;
+
+        AltFire:
+            TNT1 A 1 UsePill();
+            TNT1 A 0;
+        AltHold:
+            TNT1 A 1;
+            TNT1 A 1 A_ReFire("AltHold");
             TNT1 A 0;
             Goto Ready;
     }
