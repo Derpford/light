@@ -35,7 +35,7 @@ class LightPlayer : PlayerPawn {
         } else {
             // not bright enough i need more
             tickamt = clamp((double(lightlevel)/128.) - 1.0, 0,1);
-            darkdamage -= tickamt;
+            darkdamage -= darkdamage * 0.5 * tickamt;
         }
 
         if (darkdamage > 35) {
@@ -50,7 +50,7 @@ class LightPlayer : PlayerPawn {
             lightstage = clamp(8 - (lightlevel / 16),1,4);
         }
 
-        double sd = -shake * 0.1;
+        double sd = min(-shake * 0.1,-double.EPSILON);
         if (lightstage == 4) { sd += 1; }
         shake = max(shake+sd,0);
     }
