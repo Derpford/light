@@ -5,3 +5,12 @@ TEXTURE M_EYE0
     PIC M_EYE3 rand 35 70
     PIC M_EYE4 rand 10 35
     OSCILLATE
+
+SWITCH MONOSW1
+    ON
+        PIC MONOSW2 TICS 0
+        SOUND misc/switchon
+SWITCH MONOSW2
+    OFF
+        PIC MONOSW1 TICS 0
+        SOUND misc/switchoff
