@@ -90,11 +90,18 @@ Map "MAP01" "$TXT_MAP01"
 	Sky1 = "textures/sky1.png"
 }
 
+Map "MAP02" "$TXT_MAP02"
+{
+	LightMode = 3
+	UsePlayerStartZ
+}
+
 DoomEdNums {
 	99 = TitleScreenFlare
 	101 = WorkLamp
 	102 = CeilingLamp
 	103 = FloorLamp
+	104 = Mote, Thing_SetGoal
 	2007 = FlarePickup
 	2012 = Pills
 }
