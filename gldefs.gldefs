@@ -26,3 +26,19 @@ flickerlight2 brightflare {
     interval 0.01
     attenuate 1
 }
+
+pointlight mote1 {
+    color 0.8 0.8 1.0
+    size 128
+    attenuate 1
+}
+pointlight mote2 {
+    color 0.8 0.8 1.0
+    size 96
+    attenuate 1
+}
+pointlight mote3 {
+    color 0.8 0.8 1.0
+    size 48
+    attenuate 1
+}

@@ -35,3 +35,27 @@ class FloorLamp : Actor {
             Stop;
     }
 }
+
+class Mote : Actor {
+    // mystical, strange
+
+    default {
+        Speed 1;
+        +FRIENDLY;
+        +NOGRAVITY;
+    }
+
+    override void Tick() {
+        super.Tick();
+        // A_Chase(); // this thing can follow patrol points!
+    }
+
+    states {
+        Spawn:
+            LITE A random(15,35) Light("mote1");
+            LITE B random(10,20) Light("mote2");
+            LITE C random(5,15) Light("mote3");
+            LITE B random(10,20) Light("mote2");
+            Loop;
+    }
+}
