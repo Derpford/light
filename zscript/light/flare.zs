@@ -1,5 +1,17 @@
+mixin class reassure {
+    // reassuring
+
+    void Reassure(double rad, bool flicker = false) {
+        A_RadiusGive("reassurance",rad,RGF_PLAYERS);
+        if (!flicker || GetAge() % 5 == 0) {
+            A_SpawnParticle("FFFFFF",SPF_FULLBRIGHT|SPF_RELATIVE,4,8,frandom(0,360),xoff:128,zoff:4,velz:2);
+        }
+    }
+}
+
 class RoadFlare : Actor {
     // brilliant, temporary
+    mixin reassure;
     double time;
     double spin;
     Property Time : time;
@@ -24,10 +36,7 @@ class RoadFlare : Actor {
             }
 
             // reassuring
-            A_RadiusGive("reassurance",128,RGF_PLAYERS);
-            if (time > 10 || GetAge() % 5 == 0) {
-                A_SpawnParticle("FFFFFF",SPF_FULLBRIGHT|SPF_RELATIVE,4,8,frandom(0,360),xoff:128,zoff:4,velz:2);
-            }
+            Reassure(128,(time < 10));
         } else {
             SetState(ResolveState("Dead"));
         }
