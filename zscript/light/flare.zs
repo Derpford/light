@@ -10,7 +10,7 @@ class RoadFlare : Actor {
         +ACTIVATEPCROSS
         DamageFunction (1); // bonk
         RoadFlare.Time 60; // One minute of burn time.
-        Speed 20; // For flaretosser.
+        Speed 30; // For flaretosser.
     }
 
     override void Tick() {
@@ -25,6 +25,9 @@ class RoadFlare : Actor {
 
             // reassuring
             A_RadiusGive("reassurance",128,RGF_PLAYERS);
+            if (time > 10 || GetAge() % 5 == 0) {
+                A_SpawnParticle("FFFFFF",SPF_FULLBRIGHT|SPF_RELATIVE,4,8,frandom(0,360),xoff:128,zoff:4,velz:2);
+            }
         } else {
             SetState(ResolveState("Dead"));
         }
