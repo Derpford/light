@@ -101,7 +101,7 @@ DoomEdNums {
 	101 = WorkLamp
 	102 = CeilingLamp
 	103 = FloorLamp
-	104 = Mote, Thing_SetGoal
+	104 = Mote
 	2007 = FlarePickup
 	2012 = Pills
 }
