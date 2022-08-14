@@ -42,3 +42,24 @@ pointlight mote3 {
     size 48
     attenuate 1
 }
+
+pointlight orb1 {
+    color 1 1 1
+    size 160
+    attenuate 1
+}
+pointlight orb2 {
+    color 1 1 1
+    size 128
+    attenuate 1
+}
+pointlight orb3 {
+    color 1 1 1
+    size 96
+    attenuate 1
+}
+pointlight orb4 {
+    color 1 1 1
+    size 64
+    attenuate 1
+}

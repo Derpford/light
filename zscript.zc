@@ -1,6 +1,6 @@
 version "3.3.2"
 
-#include "zscript/MyStandaloneGamePlayer/MyStandaloneGamePlayer.zc"
+// #include "zscript/MyStandaloneGamePlayer/MyStandaloneGamePlayer.zc"
 // #include "zscript/MyStandaloneGameHUD/MyStandaloneGameHUD.zc"
 #include "zscript/light/hud.zs"
 #include "zscript/light/deco.zs"
@@ -9,3 +9,4 @@ version "3.3.2"
 #include "zscript/light/player.zs"
 #include "zscript/light/flare.zs"
 #include "zscript/light/flaretoss.zs"
+#include "zscript/light/orb.zs"

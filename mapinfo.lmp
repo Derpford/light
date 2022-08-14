@@ -102,6 +102,8 @@ DoomEdNums {
 	102 = CeilingLamp
 	103 = FloorLamp
 	104 = Mote
+	105 = LightOrb
+	106 = Pedestal
 	2007 = FlarePickup
 	2012 = Pills
 }
