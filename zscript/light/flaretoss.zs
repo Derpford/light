@@ -10,6 +10,12 @@ class FlareTosser : Weapon {
         let flr = RoadFlare(A_FireProjectile("RoadFlare"));
         if (flr) {
             flr.spin = frandom(-5,5);
+            if (invoker.owner.z != invoker.owner.floorz) {
+                // Flarejumping.
+                double newpit = clamp(invoker.owner.pitch+15,0,180);
+                double newspd = invoker.owner.vel.length()/3;
+                invoker.owner.Vel3DFromAngle(-(newspd+16),invoker.owner.angle,newpit);
+            }
         }
     }
 
