@@ -14,3 +14,12 @@ SWITCH MONOSW2
     OFF
         PIC MONOSW1 TICS 0
         SOUND misc/switchoff
+
+SWITCH WEB1
+    ON
+        SOUND misc/swfire
+        PIC WEB2 rand 3 5
+        PIC WEB3 rand 3 5
+        PIC WEB4 rand 3 5
+        PIC WEB5 rand 3 5
+        PIC WEB6 tics 0

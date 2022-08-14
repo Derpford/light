@@ -5,6 +5,10 @@ class RoadFlare : Actor {
     Property Time : time;
     default {
         +FLATSPRITE;
+        +MISSILE;
+        +ACTIVATEIMPACT
+        +ACTIVATEPCROSS
+        DamageFunction (1); // bonk
         RoadFlare.Time 60; // One minute of burn time.
         Speed 20; // For flaretosser.
     }
@@ -33,6 +37,7 @@ class RoadFlare : Actor {
 
     states {
         Spawn:
+        Death:
             FLAR A -1 Light("flare");
             Stop;
         Flicker:
