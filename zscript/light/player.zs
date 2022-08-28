@@ -1,3 +1,12 @@
+class SlickShaderHandler : EventHandler {
+    // Set the timer.
+    override void RenderOverlay (RenderEvent e) {
+		float time = float(gametic+e.fractic)/GameTicRate;
+		PlayerInfo p = players[consoleplayer];
+		Shader.SetUniform1f(p,"SlickShader","timer",(time));
+    }
+}
+
 class LightPlayer : PlayerPawn {
     // i need the light
     // why won't you give it to me
@@ -40,7 +49,7 @@ class LightPlayer : PlayerPawn {
 
         if (darkdamage > 35) {
             shake += max(5.0,2*shake);
-            DamageMobj(null,null,1,"dark",DMG_FORCED);
+            DamageMobj(null,null,1,"dark");
             darkdamage -= 12;
         }
 
@@ -53,5 +62,14 @@ class LightPlayer : PlayerPawn {
         double sd = min(-shake * 0.1,-double.EPSILON);
         if (lightstage == 4) { sd += 1; }
         shake = max(shake+sd,0);
+
+        // Toggle the shader and set intensity as appropriate.
+        if (health < 90) {
+            Shader.SetEnabled(player,"SlickShader",true);
+            double hpperc = double(health) / double(GetMaxHealth());
+            Shader.SetUniform1f(player,"SlickShader","intensity",1. - hpperc);
+        } else {
+            Shader.SetEnabled(player,"SlickShader",false);
+        }
     }
 }
