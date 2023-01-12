@@ -77,11 +77,14 @@ float getLum(vec4 cols)
 
 void main() {
     vec4 cols = texture2D(tex, TexCoord);
+    vec2 center = vec2(0.5,0.5);
     vec3 v = voronoi3d(vec3((TexCoord.x + cos(timer / 4.))*4, (TexCoord.y + sin(timer / 3.))*3, sin(timer) + sin(timer*2)));
     // How much original color is there?
     float orig = getLum(cols);
+    // How close to the center are we?
+    float d = distance(TexCoord,center);
     // How much of the voronoi is there?
-    float vf = (getLum(vec4(normalize(v),1)) - orig) * intensity;
+    float vf = (getLum(vec4(normalize(v),1)) * (1 - orig)) * intensity * d;
 
     vec4 rainbow = abs(vec4(sin(timer), cos(timer), sin(timer * 3), 1));
 
