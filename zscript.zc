@@ -1,12 +1,16 @@
-version "3.3.2"
+version "4.10"
 
 // #include "zscript/MyStandaloneGamePlayer/MyStandaloneGamePlayer.zc"
 // #include "zscript/MyStandaloneGameHUD/MyStandaloneGameHUD.zc"
-#include "zscript/light/hud.zs"
+// in-world things
 #include "zscript/light/deco.zs"
+#include "zscript/light/eye.zs"
+#include "zscript/light/orb.zs"
 #include "zscript/light/pickups.zs"
+
+// player things
+#include "zscript/light/hud.zs"
 #include "zscript/light/pill.zs"
 #include "zscript/light/player.zs"
 #include "zscript/light/flare.zs"
 #include "zscript/light/flaretoss.zs"
-#include "zscript/light/orb.zs"
