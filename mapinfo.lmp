@@ -108,4 +108,5 @@ DoomEdNums {
 	2007 = FlarePickup
 	2012 = Pills
 	3002 = DarkEye
+	3003 = EyeTeleSpot
 }

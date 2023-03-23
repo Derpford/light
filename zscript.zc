@@ -4,6 +4,7 @@ version "4.10"
 // #include "zscript/MyStandaloneGameHUD/MyStandaloneGameHUD.zc"
 // in-world things
 #include "zscript/light/deco.zs"
+#include "zscript/light/monster.zs"
 #include "zscript/light/eye.zs"
 #include "zscript/light/orb.zs"
 #include "zscript/light/pickups.zs"
